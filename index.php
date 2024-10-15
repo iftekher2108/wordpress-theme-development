@@ -34,17 +34,61 @@
                 </button>
 
                 <?php
-                wp_nav_menu(array(
-                    'theme_location'  => 'main_menu',
-                    'depth'           => 9, // 1 = no dropdowns, 2 = with dropdowns.
-                    'container'       => 'div',
-                    'container_class' => 'collapse navbar-collapse',
-                    'container_id'    => 'bs-example-navbar-collapse-1',
-                    'menu_class'      => 'navbar-nav m-auto',
-                    'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-                    'walker'          => new WP_Bootstrap_Navwalker,
-                ));
+                wp_nav_menu([
+				'theme_location'  => 'primary',              
+                'container'       => false,                   
+                'menu_class'      => 'navbar-nav ms-auto',
+				]);
                 ?>
+						
+<?php
+// Add 'nav-item' class to each <li> element
+function add_nav_item_class($classes, $item, $args) {
+    $classes[] = 'nav-item';
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_nav_item_class', 10, 3);
+
+// Add 'nav-link' class to each <a> element
+function add_nav_link_class($atts, $item, $args) {
+    $atts['class'] = 'nav-link';
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'add_nav_link_class', 10, 3);
+
+// Add 'dropdown' class to parent <li> elements
+function add_dropdown_class($classes, $item, $args) {
+    if (in_array('menu-item-has-children', $classes)) {
+        $classes[] = 'dropdown';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_dropdown_class', 10, 3);
+
+// Add 'dropdown-toggle' class and attributes to parent <a> elements
+function add_dropdown_link_class($atts, $item, $args) {
+    if (in_array('menu-item-has-children', $item->classes)) {
+        $atts['class'] = 'nav-link dropdown-toggle';
+        $atts['data-bs-toggle'] = 'dropdown';
+        $atts['aria-haspopup'] = 'true';
+        $atts['aria-expanded'] = 'false';
+        $atts['role'] = 'button';
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'add_dropdown_link_class', 10, 3);
+
+// Add 'dropdown-menu' class to submenu <ul> elements
+function add_dropdown_menu_class($classes, $args, $depth) {
+    if ($depth === 1) {
+        $classes[] = 'dropdown-menu';
+    }
+    return $classes;
+}
+add_filter('nav_menu_submenu_css_class', 'add_dropdown_menu_class', 10, 3);
+?>
+				
+				
 
             </div>
         </nav>
