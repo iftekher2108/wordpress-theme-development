@@ -59,8 +59,8 @@ add_action( 'wp_enqueue_scripts','iftekher_theme_js_script');  // file function 
 
 // register the menu items
 		register_nav_menus( array(
-	    	'primary_menu' => __( 'Primary Menu'),
-	    	'footer_menu'  => __( 'Footer Menu'),
+	    	'primary' => __( 'Primary Menu'),
+	    	'footer'  => __( 'Footer Menu'),
 		) );
 
 // register the menu items

@@ -1,5 +1,90 @@
 // ================= navigation menu section styles ============================
 
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    nav.navbar {
+        background: var(--bs-primary);
+    }
+}
+
+
+
+
+.submenu {
+    padding-left:0rem !important;
+    display:none;
+    &:hover {
+        >.submenu {
+            display: block;
+            top:0%;
+            right:100%;
+        }
+    }
+    li {
+        color:white;
+        background: black;
+        position: relative;
+        &:hover {
+            >.submenu {
+                display:block;
+                top:0%;
+                left:100%;
+            } 
+        }
+    }
+    >.submenu {
+        display:none;
+        top:0%;
+        left:100%;
+    }
+  }
+
+#nav-menu.navbar-nav{
+    padding: 30px;
+    gap:20px;
+    >.menu-item {
+        padding:5px;
+        background: #000;
+        &:hover{
+            background:blue;
+        }
+        >a{
+            text-decoration: none;
+            color:white
+        }
+    }
+    li{
+        color:white;
+        background: black;
+        position: relative;
+        &:hover{
+            >.sub-menu {
+                display:block;
+                list-style:none;
+                position: absolute;
+            }  
+        }
+        >.sub-menu {
+            top:100%;
+            display:none;
+            list-style:none;
+            position: absolute;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 

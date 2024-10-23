@@ -15,22 +15,24 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#"><?php bloginfo('title') ?></a>
 
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="">
                     <span class="navbar-toggler-icon"></span>
-                </button> -->
-
-                <?php
-                wp_nav_menu([
-                    'theme_location' => 'primary',
-                    'container'      => false,
-                    'menu_class'     => 'navbar-nav ms-auto',
-                ]);
-                ?>
-
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'primary',
+                        'container'      => 'ul',
+                        'depth' => 0,
+                        'menu_id' =>'nav-menu',
+                        'menu_class'     => 'navbar-nav ms-auto mb-2 mb-lg-0',
+                    ]);
+                    ?>
+                </div>
             </div>
-            <?php get_search_form(); ?>
+            <!-- <?php get_search_form(); ?> -->
         </nav>
 
     </header>
@@ -38,4 +40,4 @@
     <p>iftekher mahmud</p>
 
 
-<?php get_footer(); ?>
+    <?php get_footer(); ?>
