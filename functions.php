@@ -49,7 +49,7 @@ if( ! function_exists('iftekher_theme_js_script')) {
 // all js file initialization
 function iftekher_theme_js_script() {
         // javascript & js plugins file initialization
-        wp_enqueue_script('bootstrap-js',get_template_directory_uri(  ).'/assets/plugins/bootstrap/js/bootstrap.bundle.min.js',array(),'5.3.3', 'true');      // custom bootstrap initialization
+        wp_enqueue_script('bootstrap-js',get_template_directory_uri().'/assets/plugins/bootstrap/js/bootstrap.bundle.min.js',array(),'5.3.3', 'true');      // custom bootstrap initialization
         wp_enqueue_script('jquery');        // jquery plugin initialization
         wp_enqueue_script('iftekher-main',get_template_directory_uri().'/assets/js/main.js',array(),'1.0.0','true');  
 }
